@@ -36,3 +36,6 @@ sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/to
 cd $HOME
 wget https://dl.discordapp.net/apps/linux/0.0.1/discord-0.0.1.deb
 dpkg -i discord-0.0.1.deb
+
+# Installation de Terminator
+sudo apt-get install terminator
