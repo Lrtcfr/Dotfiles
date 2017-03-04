@@ -1,79 +1,85 @@
-# Use Xft?
-use_xft yes
-xftfont Freesans:pixelsize=9
-xftalpha 0.8
-text_buffer_size 2048
+# Conky settings #
 background no
-# Update interval in seconds
 update_interval 1
-xftalpha 0.8
 own_window_argb_visual yes
-# This is the number of times Conky will update before quitting.
-# Set to zero to run forever.
-total_run_times 0
-
-# Create own window instead of using desktop (required in nautilus)
-own_window yes
-own_window_transparent yes
-own_window_type normal
-own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
-
-# Use double buffering (reduces flicker, may not work for everyone)
-double_buffer yes
-
-# Draw shades?
-draw_shades no
-
-# Draw outlines?
-draw_outline no
-
-# Draw borders around text
-draw_borders no
-
-# Stippled borders?
-stippled_borders 0
-
-# border width
-border_width 1
-
-# Default colors and also border colors
-# default_color white
-# own_window_colour white
-
-# Subtract file system buffers from used memory?
-no_buffers yes
-
-# set to yes if you want all text to be in uppercase
-uppercase yes
-
-# number of cpu samples to average
-# set to 1 to disable averaging
 cpu_avg_samples 2
-
-# number of net samples to average
-# set to 1 to disable averaging
 net_avg_samples 2
 
-# Force UTF8? note that UTF8 support required XFT
 override_utf8_locale yes
 
-# Add spaces to keep things from moving about?  This only affects certain objects.
-use_spacer none
+double_buffer yes
+no_buffers yes
 
-alignment bl
-gap_x 100
-gap_y 180
-minimum_size 280 150
-maximum_width 350
+text_buffer_size 2048
+#imlib_cache_size 0
 
-default_color ECECEC
-color1 DA7132
-#color2 585858
-#color1 1E1E1E
-#color2 868686
+temperature_unit degres
+
+# Window specifications #
+
+own_window yes
+own_window_type normal
+own_window_transparent yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+
+border_inner_margin 0
+border_outer_margin 0
+
+minimum_size 200 250
+maximum_width 200
+
+alignment mr
+gap_x 35
+gap_y 55
+
+# Graphics settings #
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders no
+
+# Text settings #
+use_xft yes
+xftfont caviar dreams:size=8
+xftalpha 0.5
+
+uppercase yes
+
+temperature_unit celsius
+
+
+default_color FFFFFF
+
+# Lua Load  #
+lua_load ~/.conky/conky-extra/conky11/clock_rings.lua
+lua_draw_hook_pre clock_rings
 
 TEXT
-${voffset 8}${font Pricedown:size=60}${color1}${time %H:%M:%S %p}${font}${voffset -8}
-${voffset 8}${font Blue Highway:size=20}${color D5CECE}${time %A} ${time %e} ${time %B}${font}${voffset -8}
-${voffset 8}${font Blue Highway:size=15}RM $mem/$memmax - HD ${fs_used /}/${fs_size /}${font}${voffset -8}
-${voffset 8}${font Blue Highway:size=12}CPU $freq_g GHz $cpu% - ${if_up wlp2s0}WIFI ${wireless_link_qual wlp2s0}${font}${voffset -8}${endif}
+${voffset 8}${color FF6600}${font caviar dreams:size=16}${time %A}${font}${voffset -8}${alignr 50}${color FFFFFF}${font caviar dreams:size=38}${time %e}${font}
+${color FFFFFF}${voffset -30}${color FFFFFF}${font caviar dreams:size=18}${time %b}${font}${voffset -3} ${color FFFFFF}${font caviar dreams:size=20}${time %Y}${font}${color FF6600}${hr}
+${voffset 140}${font caviar dreams:size=10}${alignr}HOME${font}
+${font caviar dreams:size=12}${color FFFFFF}${alignr}${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ LQBK temperature temperature 30} °C${font}
+${image ~/.conky/conky-extra/conky11/new-ubuntu-logo.png -p 64,125 -s 70x20}
+
+${color FFFFFF}${goto 25}${voffset 35}${cpu cpu0}%
+${color FF6600}${goto 25}CPU
+${color FFFFFF}${goto 50}${voffset 23}${memperc}%
+${color FF6600}${goto 50}RAM
+${color FFFFFF}${goto 75}${voffset 23}${swapperc}%
+${color FF6600}${goto 75}Swap
+${color FFFFFF}${goto 100}${voffset 23}${fs_used_perc /}%
+${color FF6600}${goto 100}Disk
+${color FFFFFF}${goto 125}${voffset 25}${downspeed wlp1s0}
+${color FFFFFF}${goto 125}${upspeed wlp1s0}
+${color FF6600}${goto 125}Net
+
+
+
+${color FFFFFF}${font caviar dreams:size=12}Uptime: ${uptime_short}
+${color FFFFFF}${font caviar dreams:size=12}Processes: ${processes}
+${color FFFFFF}${font caviar dreams:size=12}Running: ${running_processes}
+
+
+${color FF6600}${font caviar dreams:size=14}${alignr}${nodename}
+${color FF6600}${font caviar dreams:size=14}${alignr}${pre_exec cat /etc/issue.net}  $machine
+${color FF6600}${font caviar dreams:size=14}${alignr}Kernel: ${kernel}
