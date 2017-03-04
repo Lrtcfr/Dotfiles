@@ -31,3 +31,8 @@ rm sublime-text_build-3126_amd64.deb
 
 # Installation de Oh-My-Zsh
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+
+# Installation de Discord
+cd $HOME
+wget https://dl.discordapp.net/apps/linux/0.0.1/discord-0.0.1.deb
+dpkg -i discord-0.0.1.deb
