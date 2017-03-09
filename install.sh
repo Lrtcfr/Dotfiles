@@ -1,3 +1,4 @@
+# Installation des logiciels
 cd $HOME
 
 sudo apt-get install -y kdeconnect indicator-kdeconnect apache2 libapache2-mod-php7.0 \
@@ -20,7 +21,10 @@ rm discord-0.0.1.deb
 
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 
+# Installation des fonts
 git clone git@github.com:abertsch/Menlo-for-Powerline.git
 cd Menlo-for-Powerline/
 cp "Menlo for Powerline.ttf" ~/.fonts
 fc-cache -vf ~/.fonts
+
+# Configuration de Conky, ...
