@@ -2,10 +2,10 @@
 Dépôt pour me rappeler de la configuration de la distro en cas de changement ou de réinstallation.
 
 ##Etape 1 :
-```cd ~/```
+Se rendre dans le répertoire utilisateur : ```cd ~/```
 
 ##Etape 2 :
-```git clone git@github.com:Lrtcfr/Dotfiles.git ```
+Cloner le dépôt : ```git clone git@github.com:Lrtcfr/Dotfiles.git ```
 
 ##Etape 3 :
-```sudo ./install.sh```
+Lancer le script d'installation : ```sudo ./install.sh```
