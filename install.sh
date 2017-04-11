@@ -12,7 +12,8 @@ sudo apt-get install -y kdeconnect indicator-kdeconnect apache2 libapache2-mod-p
 	redshift zsh git terminator
 
 wget https://download.sublimetext.com/sublime-text_build-3126_amd64.deb
-wget https://dl.discordapp.net/apps/linux/0.0.1/discord-0.0.1.deb dpkg -i sublime-text_build-3126_amd64.deb dpkg -i discord-0.0.1.deb
+wget https://dl.discordapp.net/apps/linux/0.0.1/discord-0.0.1.deb 
+dpkg -i sublime-text_build-3126_amd64.deb 
+dpkg -i discord-0.0.1.deb
 rm sublime-text_build-3126_amd64.deb 
 rm discord-0.0.1.deb
-sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
